@@ -1,13 +1,14 @@
 package bank.cards.repository;
 
-import bank.cards.model.Cards;
-import org.springframework.data.repository.CrudRepository;
+import bank.cards.entity.Cards;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
+import java.util.Optional;
 
 @Repository
-public interface CardsRepository extends CrudRepository<Cards,Long> {
+public interface CardsRepository extends JpaRepository<Cards,Long> {
 
-    List<Cards> findByCustomerId(int customerId);
+    Optional<Cards> findByMobileNumber(String mobileNumber);
+    Optional<Cards> findByCardNumber(String cardNumber);
 }
